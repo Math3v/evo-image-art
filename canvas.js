@@ -1,9 +1,6 @@
 var canvasElem = document.getElementById( 'canvas' );
 var canvasCtx = canvasElem.getContext( '2d' );
 
-var imageElem = document.getElementById( 'image' );
-var imageCtx = imageElem.getContext( '2d' );
-
 const CANVAS_W = 480;
 const CANVAS_H = 480;
 
@@ -30,11 +27,21 @@ function initCanvas() {
 function canvasToImageData() {
   let imageData = canvasCtx.getImageData(0, 0, CANVAS_W, CANVAS_H);
   console.log( imageData );
+  let data = canvasElem.toDataURL().replace(/^data:image\/\w+;base64,/, "");
+  let buf = new Buffer(data, 'base64');
+  fs.writeFileSync('tmp.png', buf);
+
+  resemble('fly.jpg')
+  .compareTo('tmp.png')
+  //.ignoreColors()
+  .onComplete(function(data){
+    console.log(data);
+});
 }
 
 function imageToImageData() {
-  let imageData = canvasCtx.getImageData(0, 0, CANVAS_W, CANVAS_H);
-  console.log( imageData );
+  //let imageData = canvasCtx.getImageData(0, 0, CANVAS_W, CANVAS_H);
+  //console.log( imageData );
 }
 
 initCanvas();
