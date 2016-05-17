@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "build":"electron-packager . EvoArt asar --platform=all --arch=all --version=0.37.8"
   },
   "repository": {
     "type": "git",

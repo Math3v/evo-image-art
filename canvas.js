@@ -8,6 +8,9 @@ var imageElem = document.getElementById( 'image' );
 var imageCtx = imageElem.getContext( '2d' );
 var imageData;
 
+var hiddenCanvasElem = document.getElementById( 'fitness' );
+var hiddenCanvasCtx  = hiddenCanvasElem.getContext( '2d' );
+
 function random(to) {
   return Math.floor( (Math.random() * to) + 1);
 }
