@@ -11,12 +11,20 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    <button id="startBtn">Start</button>
     <div>
-      <img id="image" src="fly.jpg" alt="" width="480" height="480">
-      <canvas id="canvas" width="480" height="480"></canvas>
+      <img id="img" src="butterfly.jpg" width="200" height="200" style="display:none;">
+      <canvas id="canvas" width="200" height="200"></canvas>
+      <canvas id="image"  width="200" height="200"></canvas>
+    </div>
+    <div>
+      <span id="minScore"></span>
+      <span id="maxScore"></span>
     </div>
     <script src="common.js"></script>
     <script src="fileSaver.js"></script>
     <script src="canvas.js"></script>
+    <!-- <script src="genetic.js"></script> -->
+    <script src="nodeGenetic.js"></script>
   </body>
 </html>
