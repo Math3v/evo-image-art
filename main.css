@@ -1,0 +1,9 @@
+canvas {
+  border: 1px solid black;
+  float: right;
+}
+
+img {
+  border: 1px solid black;
+  float: left;
+}
