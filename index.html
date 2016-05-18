@@ -3,30 +3,86 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" href="min.css">
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using node <script>document.write(process.versions.node)</script>,
+    <!-- We are using node <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-    <button id="startBtn">Start</button>
+    and Electron <script>document.write(process.versions.electron)</script>. -->
+    <div class="row">
+      <div class="col c3">
+        <label>Population size</label>
+        <input type="number" id="popSize" value="15">
+      </div>
+      <div class="col c3">
+        <label>Mutation rate</label>
+        <input type="number" id="mutateRate" value="0.1">
+      </div>
+      <div class="col c3">
+        <label>Crossover rate</label>
+        <input type="number" id="crossRate" value="0.7">
+      </div>
+      <div class="col c3">
+        <label>Number of generations</label>
+        <input type="number" id="generations" value="100">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col c3">
+        <label>Number of circles</label>
+        <input type="number" id="solutionSize" value="75">
+      </div>
+      <div class="col c3">
+        <label>Max circle size</label>
+        <input type="number" id="maxElemSize" value="25">
+      </div>
+    </div>
+    <button class="btn btn-a btn-sm smooth" id="imageBtn">Open image</button>
+    <button class="btn btn-b btn-sm smooth" id="startBtn">Start</button>
+    <button class="btn btn-a btn-sm smooth" id="saveRBtn">Save result</button>
+
     <div>
-      <img id="img" src="butterfly.jpg" width="200" height="200" style="display:none;">
-      <canvas id="canvas"  width="200" height="200"></canvas>
-      <canvas id="image"   width="200" height="200"></canvas>
+      <img id="img" src="" width="200" height="200" style="display:none;">
       <canvas id="fitness" width="200" height="200" style="display:none;"></canvas>
+      <div class="row">
+        <div class="col c4">
+          <canvas id="canvas" width="200" height="200"></canvas>
+        </div>
+        <div class="col c4">
+          <canvas id="image" width="200" height="200"></canvas>
+        </div>
+      </div>
     </div>
-    <div>
-      <p>Cnt: <span id="actGener"></span></p>
-      <p>Max: <span id="minScore"></span></p>
-      <p>Min: <span id="maxScore"></span></p>
-    </div>
+    <table class="table">
+      <thead>
+        <th>Statistics</th>
+        <th>Actual value</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Generation count</td>
+          <td><span id="actGener"></span></td>
+        </tr>
+        <tr>
+          <td>Max population score</td>
+          <td><span id="maxScore"></span></td>
+        </tr>
+        <tr>
+          <td>Min population score</td>
+          <td><span id="minScore"></span></td>
+        </tr>
+        <tr>
+          <td>Average population score</td>
+          <td><span id="avgScore"></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="canvas2svg.js"></script>
     <script src="common.js"></script>
     <script src="fileSaver.js"></script>
     <script src="canvas.js"></script>
-    <!-- <script src="genetic.js"></script> -->
     <script src="nodeGenetic.js"></script>
   </body>
 </html>

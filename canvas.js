@@ -16,23 +16,40 @@ function random(to) {
 }
 
 function initCanvas() {
-  for( let i = 0; i < 1200; i++ ) {
-    let x = random( CANVAS_W );
-    let y = random( CANVAS_H );
-    let s = random( 7 );
+  // for( let i = 0; i < 100; i++ ) {
+  //   let x = random( CANVAS_W );
+  //   let y = random( CANVAS_H );
+  //   let s = random( 20 );
 
-    canvasCtx.beginPath();
-    canvasCtx.arc(x, y, s, 0, 2 * Math.PI);
-    canvasCtx.fillStyle = "rgb("+
-      Math.floor(Math.random()*256)+","+
-      Math.floor(Math.random()*256)+","+
-      Math.floor(Math.random()*256)+")";
-    canvasCtx.fill();
-  }
+  //   canvasCtx.beginPath();
+  //   canvasCtx.arc(x, y, s, 0, 2 * Math.PI);
+  //   canvasCtx.fillStyle = "rgb("+
+  //     Math.floor(Math.random()*256)+","+
+  //     Math.floor(Math.random()*256)+","+
+  //     Math.floor(Math.random()*256)+")";
+  //   canvasCtx.fill();
+  // }
+
+  // canvasCtx.fillStyle = 'red'
+  // canvasCtx.fillRect(0, 0, 200, 100)
+  // canvasCtx.fillStyle = 'blue'
+  // canvasCtx.fillRect(0, 100, 200, 100)
+  // canvasCtx.fill()
+
+  // let canvasData = _.flatten( canvasCtx.getImageData(0, 0, CANVAS_W, CANVAS_H).data )
+  // let sum = 0;
+  // for( let i = 0; i < canvasData.length; i++ ) {
+  //   sum += ( Math.abs(canvasData[i] - imageData[i]) )
+  //   console.log( Math.abs(canvasData[i] - imageData[i]))
+  // }
+
+  // console.log( sum )
 }
 
 function initImage() {
-  imageCtx.drawImage(document.getElementById('img'), 0, 0, CANVAS_W, CANVAS_H)
+  var hiddenImgElem = document.getElementById('img');
+  console.log( 'Init image', hiddenImgElem )
+  imageCtx.drawImage(hiddenImgElem, 0, 0, CANVAS_W, CANVAS_H)
   console.log( imageCtx.getImageData(0, 0, CANVAS_W, CANVAS_H) )
   imageData = _.flatten( imageCtx.getImageData(0, 0, CANVAS_W, CANVAS_H).data )
 }
@@ -58,6 +75,6 @@ function imageToImageData() {
   //console.log( imageData );
 }
 
-initCanvas();
-initImage();
+//initImage();
+//initCanvas();
 //genetic.evolve(config, {});
