@@ -88,16 +88,19 @@ document.getElementById('imageBtn').onclick = function() {
     if( err ) {
       console.error( err );
     }
-    fs.writeFileSync('tmp', data);
+    fs.writeFileSync(getUserHome()+'/tmp', data);
     var img = document.getElementById( 'img' );
-    img.src = 'tmp';
+    img.src = getUserHome()+'/tmp';
     //imageCtx.drawImage(img, 0, 0, CANVAS_W, CANVAS_H);
   })
 }
 
 document.getElementById('startBtn').onclick = function() {
   initImage();
-  fs.unlinkSync('tmp');
+  try {
+    fs.accessSync(getUserHome()+'/tmp')
+    fs.unlinkSync(getUserHome()+'/tmp')
+  } catch(e) {}
   popSize = getSetting('popSize')
   mutateRate = getSetting('mutateRate');
   crossRate = getSetting('crossRate');
