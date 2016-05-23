@@ -33,7 +33,9 @@ function mutate( solution, cb ) {
   let soy = solution[rnd].y
   let col = imageCtx.getImageData(sox, soy,1,1).data
 
-  console.log("Mutation ", col[0], col[1], col[2])
+  if( col.length > 0 && col.reduce(function(p, c) { return p + c; }) === 0 ) {
+    col = [255, 255, 255, 255];
+  }
 
   solution[ rnd ] = {
     'x': sox,
