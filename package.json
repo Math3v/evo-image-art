@@ -1,28 +1,13 @@
 {
-  "name": "electron-quick-start",
+  "name": "CircleArt",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Generate circle art with evolution algorithm",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "build":"electron-packager . EvoArt asar --platform=all --arch=all --version=0.37.8"
+    "build":"electron-packager . CircleArt --ignore=node_modules/asar --ignore=node_modules/babel* --ignore=node_modules/electron-* --platform=all --arch=all --version=0.37.8 --asar=true"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
-  },
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
-  "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
-  },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "author": "Matej Minarik (xminar29)",
   "devDependencies": {
     "electron-prebuilt": "^1.0.1"
   }

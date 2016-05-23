@@ -28,14 +28,21 @@ function crossover( mother, father, cb ) {
 }
 
 function mutate( solution, cb ) {
-  solution[ random(solutionSize - 1) ] = {
-    'x': random(CANVAS_W), 
-    'y': random(CANVAS_H),
+  let rnd = random(solutionSize - 1)
+  let sox = solution[rnd].x
+  let soy = solution[rnd].y
+  let col = imageCtx.getImageData(sox, soy,1,1).data
+
+  console.log("Mutation ", col[0], col[1], col[2])
+
+  solution[ rnd ] = {
+    'x': sox,
+    'y': soy,
     's': random(maxElemSize),
     'c': "rgb("+
-      Math.floor(Math.random()*256)+","+
-      Math.floor(Math.random()*256)+","+
-      Math.floor(Math.random()*256)+")"
+      col[0]+","+
+      col[1]+","+
+      col[2]+")"
   }
   cb( solution )
 }
